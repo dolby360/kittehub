@@ -1,0 +1,15 @@
+# This YAML file is a declarative manifest that describes the setup
+# of an AutoKitteh project that demonstrates 2-way usage of HTTP.
+
+version: v1
+
+project:
+  name: win_server
+  vars:
+    - name: HTTP_WIN_BASE_URL
+      value: http://127.0.0.1:8001/
+  triggers:
+    - name: receive_http_post
+      type: webhook
+      event_type: post
+      call: webhooks.py:send_requests
